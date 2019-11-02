@@ -37,7 +37,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.quest.flutter_learning2"
+        applicationId "com.quest.flutter_learning"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()

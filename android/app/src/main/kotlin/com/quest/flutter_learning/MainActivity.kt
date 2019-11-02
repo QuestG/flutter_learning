@@ -1,4 +1,4 @@
-package com.quest.flutter_learning2
+package com.quest.flutter_learning
 
 import android.content.Context
 import android.content.ContextWrapper
