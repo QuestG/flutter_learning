@@ -1,0 +1,106 @@
+{
+  "@@last_modified": "2019-10-31T23:57:20.006900",
+  "@@locale":"en",
+  "title": "SimulateGitHub",
+  "@title": {
+    "description": "Title for Simulating GitHub",
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "home",
+  "@home": {
+    "description": "Home",
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "login",
+  "@login": {
+    "description": "login github",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noDescription": "noDescription",
+  "@noDescription": {
+    "description": "No Description",
+    "type": "text",
+    "placeholders": {}
+  },
+ "theme": "theme",
+ "@theme": {
+   "description": "app theme",
+   "type": "text",
+   "placeholders": {}
+ },
+ "language": "language",
+ "@language": {
+   "description": "app language",
+   "type": "text",
+   "placeholders": {}
+ },
+ "logout": "logout",
+ "@logout": {
+   "description": "app logout",
+   "type": "text",
+   "placeholders": {}
+ },
+ "logoutTip": "logoutTip",
+ "@logoutTip": {
+   "description": "app logoutTip",
+   "type": "text",
+   "placeholders": {}
+ },
+ "cancel": "cancel",
+ "@cancel": {
+   "description": "cancel",
+   "type": "text",
+   "placeholders": {}
+ },
+ "yes": "yes",
+ "@yes": {
+   "description": "yes",
+   "type": "text",
+   "placeholders": {}
+ },
+ "userName": "userName",
+ "@userName": {
+   "description": "userName",
+   "type": "text",
+   "placeholders": {}
+ },
+ "userNameOrEmail": "userNameOrEmail",
+ "@userNameOrEmail": {
+   "description": "userNameOrEmail",
+   "type": "text",
+   "placeholders": {}
+ },
+ "userNameRequired": "userNameRequired",
+ "@userNameRequired": {
+   "description": "userNameRequired",
+   "type": "text",
+   "placeholders": {}
+ },
+ "password": "password",
+ "@password": {
+   "description": "password",
+   "type": "text",
+   "placeholders": {}
+ },
+ "passwordRequired": "passwordRequired",
+ "@passwordRequired": {
+   "description": "passwordRequired",
+   "type": "text",
+   "placeholders": {}
+ },
+ "userNameOrPasswordWrong": "userNameOrPasswordWrong",
+ "@userNameOrPasswordWrong": {
+   "description": "userNameOrPasswordWrong",
+   "type": "text",
+   "placeholders": {}
+ },
+ "auto": "auto",
+ "@auto": {
+   "description": "auto",
+   "type": "text",
+   "placeholders": {}
+ },
+}

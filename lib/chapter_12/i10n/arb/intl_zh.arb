@@ -1,0 +1,10 @@
+{
+  "@@last_modified": "2019-10-30T00:02:55.660057",
+  "@@locale":"zh",
+  "title": "Flutter 应用",
+  "@title": {
+    "description": "应用语言国际化的标题",
+    "type": "text",
+    "placeholders": {}
+  }
+}
