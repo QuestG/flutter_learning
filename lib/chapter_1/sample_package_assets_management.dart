@@ -11,6 +11,9 @@ import 'package:flutter/rendering.dart';
 ///     assets:
 ///       -  assets/ic_favorite.png
 /// ```dart
+///
+/// 加载文本assets
+/// 通过rootBundle对象加载：直接使用package:flutter/services.dart中全局静态的rootBundle对象来加载asset即可。
 class PackageAssetsLeaningRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

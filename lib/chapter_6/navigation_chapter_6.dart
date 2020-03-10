@@ -8,6 +8,7 @@ import 'package:flutter_learning/chapter_6/sample_willpopscope.dart';
 
 ///功能型Widget指的是不会影响UI布局及外观的Widget，它们通常具有一定的功能，如事件监听、数据存储等，
 ///功能型Widget非常多
+// ignore: must_be_immutable
 class NaviChapter6 extends StatelessWidget {
   var itemTitles = [
     "6.1 WillPopScope",

@@ -97,9 +97,15 @@ class BottomAppBarTest extends StatelessWidget {
       shape: CircularNotchedRectangle(),
       child: Row(
         children: <Widget>[
-          IconButton(icon: Icon(Icons.home)),
+          IconButton(
+            icon: Icon(Icons.home),
+            onPressed: null,
+          ),
           SizedBox(), //中间位置空出
-          IconButton(icon: Icon(Icons.business)),
+          IconButton(
+            icon: Icon(Icons.business),
+            onPressed: null,
+          ),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
       ),

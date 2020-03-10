@@ -33,7 +33,7 @@ class _AnimatedSwitcherTestState extends State<AnimatedSwitcherTest> {
               "$_count",
               //显示指定key，不同的key会被认为是不同的Text，这样才能执行动画
               key: ValueKey(_count),
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
           ),
           Row(
@@ -62,7 +62,7 @@ class _AnimatedSwitcherTestState extends State<AnimatedSwitcherTest> {
                   "$_count",
                   //显示指定key，不同的key会被认为是不同的Text，这样才能执行动画
                   key: ValueKey(_count),
-                  style: Theme.of(context).textTheme.display1,
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               )
             ],
@@ -80,7 +80,7 @@ class _AnimatedSwitcherTestState extends State<AnimatedSwitcherTest> {
               "$_count",
               //显示指定key，不同的key会被认为是不同的Text，这样才能执行动画
               key: ValueKey(_count),
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
           ),
         ],

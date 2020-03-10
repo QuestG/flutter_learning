@@ -4,6 +4,7 @@ import 'package:flutter_learning/chapter_7/sample_gesture_detector.dart';
 import 'package:flutter_learning/chapter_7/sample_notification.dart';
 import 'package:flutter_learning/chapter_7/sample_pointer_event.dart';
 
+// ignore: must_be_immutable
 class NaviChapter7 extends StatelessWidget {
   var itemTitles = [
     "7.1 原始指针事件处理",

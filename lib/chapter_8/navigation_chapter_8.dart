@@ -5,6 +5,7 @@ import 'package:flutter_learning/chapter_8/sample_hero.dart';
 import 'package:flutter_learning/chapter_8/sample_stagger_animation.dart';
 import 'package:flutter_learning/chapter_8/sample_widget_encapsulation_with_animation.dart';
 
+// ignore: must_be_immutable
 class NaviChapter8 extends StatelessWidget {
   var itemTitles = [
     "8.1 动画结构、自定义路由过渡动画",

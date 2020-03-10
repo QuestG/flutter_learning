@@ -5,6 +5,7 @@ import 'package:flutter_learning/chapter_3/sample_row_column.dart';
 import 'package:flutter_learning/chapter_3/sample_stack_positioned.dart';
 import 'package:flutter_learning/chapter_3/sample_wrap_flow.dart';
 
+// ignore: must_be_immutable
 class NaviChapter3 extends StatelessWidget {
   var itemTitles = [
     "3.1 线性布局（Row、Column）",

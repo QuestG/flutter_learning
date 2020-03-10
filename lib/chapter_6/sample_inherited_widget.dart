@@ -83,7 +83,8 @@ class ShareDataWidget extends InheritedWidget {
     // 就会更新依赖它的子孙组件，也就是会调这些子孙组件的didChangeDependencies()方法和build()方法。
     // 而当调用的是 ancestorInheritedElementForWidgetOfExactType()时，由于没有注册依赖关系，
     // 所以之后当InheritedWidget发生变化时，就不会更新相应的子孙Widget。
-    return context.inheritFromWidgetOfExactType(ShareDataWidget);
+    return context.dependOnInheritedWidgetOfExactType<ShareDataWidget>(
+        aspect: ShareDataWidget);
   }
 
   @override

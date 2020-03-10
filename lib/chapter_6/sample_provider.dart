@@ -23,12 +23,13 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
   //便捷方法，方便子Widget获取共享数据
   //添加一个listen参数，表示是否与InheritedWidget建立依赖关系
   static T of<T>(BuildContext context, {bool listen = true}) {
-    final type = _typeOf<InheritedProvider<T>>();
     final provider = listen
-        ? context.inheritFromWidgetOfExactType(type) as InheritedProvider<T>
-        : context.ancestorInheritedElementForWidgetOfExactType(type)?.widget
-            as InheritedProvider<T>;
-    return provider.data;
+        ? context.dependOnInheritedWidgetOfExactType<InheritedProvider<T>>()
+        : context
+            .getElementForInheritedWidgetOfExactType<InheritedProvider<T>>()
+            ?.widget;
+
+    return (provider as InheritedProvider<T>).data;
   }
 
   @override
@@ -36,9 +37,6 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
     return _ChangeNotifierProviderState<T>();
   }
 }
-
-//用于在Dart中获取模版类型
-Type _typeOf<T>() => T;
 
 //_ChangeNotifierProviderState类的主要作用就是监听到共享状态（model）改变时重新构建Widget树。
 // 注意，在_ChangeNotifierProviderState类中调用setState()方法，widget.child始终是同一个，

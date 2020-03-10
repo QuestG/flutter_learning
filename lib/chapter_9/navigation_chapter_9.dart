@@ -8,6 +8,7 @@ import 'package:flutter_learning/chapter_9/sample_turn_box.dart';
 //自绘可以通过Flutter中提供的CustomPaint和Canvas来实现UI自绘。
 //自绘和通过实现RenderObject的方法本质上是一样的，都需要开发者调用Canvas API手动去绘制UI，
 //优点是强大灵活，理论上可以实现任何外观的UI，而缺点是必须了解Canvas API细节，并且得自己去实现绘制逻辑。
+// ignore: must_be_immutable
 class NaviChapter9 extends StatelessWidget {
   var itemTitles = [
     "9.1 组合现有组件",

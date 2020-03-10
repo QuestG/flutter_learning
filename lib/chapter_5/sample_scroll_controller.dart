@@ -87,6 +87,7 @@ class _ScrollControllerTestState extends State<ScrollControllerTest> {
           setState(() {
             _progress = "${(progress * 100).toInt()}%";
           });
+          return true;
         },
         child: Stack(
           alignment: Alignment.center,

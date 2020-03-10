@@ -3,6 +3,7 @@ import 'package:flutter_learning/chapter_11/sample_flutter_texture.dart';
 import 'package:flutter_learning/chapter_11/sample_native_webview.dart';
 import 'package:flutter_learning/chapter_11/sample_plugin.dart';
 
+// ignore: must_be_immutable
 class NaviChapter11 extends StatelessWidget {
   var itemTitles = [
     "11.1 Flutter与原生插件开发",

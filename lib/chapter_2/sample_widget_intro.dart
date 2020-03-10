@@ -11,7 +11,7 @@ class ContextRoute extends StatelessWidget {
       body: Container(
         child: Builder(builder: (context) {
           //在Widget树中向上查找最近的'Scaffold' Widget
-          Scaffold scaffold = context.ancestorWidgetOfExactType(Scaffold);
+          Scaffold scaffold = context.findAncestorStateOfType();
           return (scaffold.appBar as AppBar).title;
         }),
       ),
@@ -71,8 +71,7 @@ class _StateLifecycleWidgetState extends State<StateLifecycleWidget> {
                 return RaisedButton(
                   child: Text("通过context获取State对象"),
                   onPressed: () {
-                    ScaffoldState _state = context
-                        .ancestorStateOfType(TypeMatcher<ScaffoldState>());
+                    ScaffoldState _state = context.findAncestorStateOfType();
                     print("_state is null ${_state == null}");
                     _state.showSnackBar(SnackBar(
                       content: Text("我是snackbar"),

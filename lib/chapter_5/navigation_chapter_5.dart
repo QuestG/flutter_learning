@@ -5,6 +5,7 @@ import 'package:flutter_learning/chapter_5/sample_listview.dart';
 import 'package:flutter_learning/chapter_5/sample_scroll_controller.dart';
 import 'package:flutter_learning/chapter_5/sample_singelchildscrollview.dart';
 
+// ignore: must_be_immutable
 class NaviChapter5 extends StatelessWidget {
   var itemTitles = [
     "5.1 SingleChildScrollView",

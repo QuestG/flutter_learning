@@ -7,6 +7,7 @@ import 'package:flutter_learning/chapter_10/sample_package_dio.dart';
 import 'package:flutter_learning/chapter_10/sample_socket.dart';
 import 'package:flutter_learning/chapter_10/sample_webscoket.dart';
 
+// ignore: must_be_immutable
 class NaviChapter10 extends StatelessWidget {
   var itemTitles = [
     "10.1 文件操作",

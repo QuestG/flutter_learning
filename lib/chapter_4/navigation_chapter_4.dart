@@ -7,6 +7,7 @@ import 'package:flutter_learning/chapter_4/sample_scaffold.dart';
 import 'package:flutter_learning/chapter_4/sample_sized_widget.dart';
 import 'package:flutter_learning/chapter_4/sample_transform.dart';
 
+// ignore: must_be_immutable
 class NaviChapter4 extends StatelessWidget {
   var itemTitles = [
     "4.1 Padding",

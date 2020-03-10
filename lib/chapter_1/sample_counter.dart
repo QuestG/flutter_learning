@@ -37,7 +37,7 @@ class _CounterPageRouteState extends State<CounterPageRoute> {
             Text("You have push this button many times."),
             Text(
               "$_counter",
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             )
           ],
         ),

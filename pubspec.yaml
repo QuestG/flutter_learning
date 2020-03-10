@@ -41,7 +41,7 @@ dependencies:
 
   webview_flutter: ^0.3.15+1
 
-  camera: ^0.5.6+1
+  camera: ^0.5.7+4
   video_player: ^0.10.2+5
 
   #language international
@@ -51,7 +51,7 @@ dependencies:
   provider: ^3.1.0+1
 
   flukit: ^1.0.2
-  cached_network_image: ^1.1.2+1
+  cached_network_image: ^2.0.0
 
   toast: ^0.1.5
 
