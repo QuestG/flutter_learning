@@ -50,6 +50,7 @@ class AlignTest extends StatelessWidget {
           ),
           DecoratedBox(
             decoration: BoxDecoration(color: Colors.red),
+            //Center Widget的widthFactor、heightFactor为null时，Center会占用尽可能多的空间。
             child: Center(
               child: Text("xxx"),
             ),

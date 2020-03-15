@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// 弹性布局允许子Widget按照一定比例开分配父Widget的空间，flutter中使用Flex和Expanded实现。
 class FlexRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

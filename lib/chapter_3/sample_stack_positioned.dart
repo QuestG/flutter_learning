@@ -12,8 +12,8 @@ class StackTest extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           //此参数用于确定没有定位的子组件如何去适应Stack的大小。
-          // StackFit.loose表示使用子组件的大小，StackFit.expand表示扩伸到Stack的大小。
-//          fit: StackFit.expand,
+          //StackFit.loose表示使用子组件的大小，StackFit.expand表示扩伸到Stack的大小。
+          //fit: StackFit.expand,
           children: <Widget>[
             Container(
               child: Text(
