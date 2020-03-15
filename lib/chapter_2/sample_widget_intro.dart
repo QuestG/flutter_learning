@@ -103,7 +103,7 @@ class _StateLifecycleWidgetState extends State<StateLifecycleWidget> {
     );
   }
 
-  ///当Widget第一次插入到Widget树时会被调用，对于每一个State对象，
+  ///当Widget第一次插入(即执行StatefulElement源码中的_firstBuild()方法)到Widget树时会被调用，对于每一个State对象，
   ///Flutter framework只会调用一次该回调，所以，通常在该回调中做一些一次性的操作，如状态初始化、订阅子树的事件通知等。
   @override
   void initState() {

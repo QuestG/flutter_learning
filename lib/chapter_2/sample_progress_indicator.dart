@@ -25,6 +25,7 @@ class _ProgressIndicatorRouteState extends State<ProgressIndicatorRoute> {
             LinearProgressIndicator(
               backgroundColor: Colors.grey[200],
               valueColor: AlwaysStoppedAnimation(Colors.blue),
+              //当前进度，范围在[0,1],如果value为null，则指示器会执行一个循环动画；如果有值，则显示一个具体的进度条。
               value: .3,
             ),
             CircularProgressIndicator(
@@ -34,8 +35,10 @@ class _ProgressIndicatorRouteState extends State<ProgressIndicatorRoute> {
             CircularProgressIndicator(
               backgroundColor: Colors.grey[200],
               valueColor: AlwaysStoppedAnimation(Colors.blue),
+              //当前进度，范围在[0,1],如果value为null，则指示器会执行一个循环动画；如果有值，则显示一个具体的进度条。
               value: .5,
             ),
+            //通过SizeBox可以自定义指示器的尺寸
             SizedBox(
               height: 3,
               child: LinearProgressIndicator(

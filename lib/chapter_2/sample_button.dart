@@ -9,6 +9,7 @@ class SampleButtonWidget extends StatelessWidget {
         title: Text("按钮使用练习"),
       ),
       body: Container(
+        width: 300,
         child: Column(
           children: <Widget>[
             //默认带有灰色背景，且带阴影
@@ -25,6 +26,7 @@ class SampleButtonWidget extends StatelessWidget {
               child: Text("OutlineButton"),
             ),
             IconButton(icon: Icon(Icons.thumb_up), onPressed: () {}),
+            //RaisedButton、FlatButton、OutlineButton都有一个icon 构造函数，通过它可以轻松创建带图标的按钮。
             RaisedButton.icon(
               onPressed: () {},
               icon: Icon(Icons.send),

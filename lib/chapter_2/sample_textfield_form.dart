@@ -192,11 +192,19 @@ class _FormTestRouteState extends State<FormTestRoute> {
 
   @override
   Widget build(BuildContext context) {
+    //Form的子孙元素必须是FromField类型。
     return Form(
+      //是否自动校验输入内容
       autovalidate: true,
+      //决定Form所在的路由是否可以直接返回，如果Future对象的最终结果是false，则当前路由不能直接返回。
+      //此属性一般可用于拦截返回按钮
+      onWillPop: null,
+      //Form的任意一个子FormField内容发生变化时会出发此回调。
+      onChanged: null,
       key: _globalKey,
       child: Column(
         children: <Widget>[
+          //TextFormField是flutter提供的封装Widget，除了FormField定义的属性外，还包括TextField的属性。
           TextFormField(
               controller: _userController,
               decoration: InputDecoration(
@@ -224,6 +232,12 @@ class _FormTestRouteState extends State<FormTestRoute> {
                   onPressed: () {
                     //在这里不能通过此方式获取FormState，context不对
                     //print(Form.of(context));
+
+                    //FormState为Form的State类，可以通过Form.of()或GlobalKey获得。我们可以通过它来对Form的子孙FormField进行统一操作。我们看看其常用的三个方法：
+                    //
+                    //FormState.validate()：调用此方法后，会调用Form子孙FormField的validate回调，如果有一个校验失败，则返回false，所有校验失败项都会返回用户返回的错误提示。
+                    //FormState.save()：调用此方法后，会调用Form子孙FormField的save回调，用于保存表单内容
+                    //FormState.reset()：调用此方法后，会将子孙FormField的内容清空。
 
                     // 通过_formKey.currentState 获取FormState后，
                     // 调用validate()方法校验用户名密码是否合法，校验
