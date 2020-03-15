@@ -11,7 +11,7 @@ class ContextRoute extends StatelessWidget {
       body: Container(
         child: Builder(builder: (context) {
           //在Widget树中向上查找最近的'Scaffold' Widget
-          Scaffold scaffold = context.findAncestorStateOfType();
+          Scaffold scaffold = context.findAncestorWidgetOfExactType();
           return (scaffold.appBar as AppBar).title;
         }),
       ),
