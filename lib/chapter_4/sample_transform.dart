@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Transform的变换是应用在绘制阶段，而并不是应用在布局(layout)阶段，
+/// Transform的变换是应用在绘制阶段，而并不是应用在布局(layout)阶段，Matrix4是一个4D矩阵，通过它我们可以实现各种矩阵操作。
 /// 所以无论对子组件应用何种变化，其占用空间的大小和在屏幕上的位置都是固定不变的，因为这些是在布局阶段就确定的。
 class TransformTest extends StatelessWidget {
   @override
@@ -16,6 +16,7 @@ class TransformTest extends StatelessWidget {
             color: Colors.blue,
             child: Transform(
               alignment: Alignment.topRight,
+              //skewY表示延Y轴倾斜的弧度
               transform: Matrix4.skewY(0.3),
               child: Container(
                 color: Colors.orange,
@@ -26,6 +27,7 @@ class TransformTest extends StatelessWidget {
           ),
           DecoratedBox(
             decoration: BoxDecoration(color: Colors.red),
+            //平移，注意这里平移的是Transform的child，而不是平移Transform所占据的空间。
             child: Transform.translate(
               //Offset以child左上角为原点，根据widget坐标系，这里x值为正，表示向右平移，y值为正表示向下平移
               offset: Offset(20, 5),
@@ -37,6 +39,7 @@ class TransformTest extends StatelessWidget {
           ),
           DecoratedBox(
             decoration: BoxDecoration(color: Colors.red),
+            //旋转
             child: Transform.rotate(
               angle: 90,
               child: Text(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+///DecoratedBox可以在其子组件绘制前(或后)绘制一些装饰（Decoration），如背景、边框、渐变等。
 class DecoratedBoxTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,15 +10,18 @@ class DecoratedBoxTest extends StatelessWidget {
       ),
       body: Center(
         child: DecoratedBox(
+          ///此属性决定在哪里绘制Decoration，它接收DecorationPosition的枚举类型，该枚举类有两个值：background和foreground。
+          position: DecorationPosition.background,
           decoration: BoxDecoration(
               gradient:
                   //线性渐变
-//                  LinearGradient(colors: [Colors.red, Colors.orange[700]]),
+                  //LinearGradient(colors: [Colors.red, Colors.orange[700]]),
                   //放射渐变
                   RadialGradient(colors: [Colors.red, Colors.orange[700]]),
               //扫描渐变
-//                  SweepGradient(colors: [Colors.red, Colors.orange[700]]),
+              //SweepGradient(colors: [Colors.red, Colors.orange[700]]),
               borderRadius: BorderRadius.circular(3),
+              //阴影
               boxShadow: [
                 BoxShadow(
                   color: Colors.black54,

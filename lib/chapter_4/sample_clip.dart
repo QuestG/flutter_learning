@@ -15,9 +15,13 @@ class ClipTest extends StatelessWidget {
         child: Column(
           children: <Widget>[
             avatar,
+
+            ///child为正方形时，裁剪为内切圆形，如果为矩形，裁剪为内切椭圆。
             ClipOval(
               child: avatar,
             ),
+
+            ///将child裁剪为圆角矩形
             ClipRRect(
               child: avatar,
               borderRadius: BorderRadius.circular(5),
@@ -40,6 +44,7 @@ class ClipTest extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                ///裁剪child到实际大小，即溢出部分裁掉。
                 ClipRect(
                   child: Align(
                     alignment: Alignment.topLeft,
@@ -56,6 +61,8 @@ class ClipTest extends StatelessWidget {
             ),
             DecoratedBox(
               decoration: BoxDecoration(color: Colors.red),
+
+              ///根据clipper属性自定裁剪child的范围。
               child: ClipRect(
                   clipper: MyClipper(), //使用自定义的clipper
                   child: avatar),
@@ -77,5 +84,5 @@ class MyClipper extends CustomClipper<Rect> {
   }
 
   @override
-  bool shouldReclip(CustomClipper<Rect> oldClipper) => false;
+  bool shouldReclip(CustomClipper<Rect> oldClipper) => true;
 }

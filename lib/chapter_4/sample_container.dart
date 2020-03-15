@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+///Container是一个组合类容器，它本身不对应具体的RenderObject，它是DecoratedBox、
+///ConstrainedBox、Transform、Padding、Align等组件组合的一个多功能容器，
+///所以我们只需通过一个Container组件可以实现同时需要装饰、变换、限制的场景。
 class ContainerTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

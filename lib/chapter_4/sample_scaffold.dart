@@ -25,6 +25,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
     return Scaffold(
       appBar: AppBar(
         title: Text("Standard Mateial App"),
+        //Widget位于AppBar右边
         actions: <Widget>[
           IconButton(icon: Icon(Icons.share), onPressed: () {})
         ],
@@ -36,7 +37,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
                 Scaffold.of(context).openDrawer();
               });
         }),
-        //生成tab菜单
+        //生成tab菜单，Tab有三个可选参数，分别为文本、图标和自定义Widget。TabBar只能生成一个静态的菜单。并没有生成Tab页
         bottom: TabBar(
           tabs: tabs
               .map((tab) => Tab(
@@ -46,26 +47,18 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
           controller: _tabController,
         ),
       ),
+
+      ///drawer和endDrawer分别接受一个Widget来作为页面的左、右抽屉菜单。
 //      drawer: SecondDrawer(),
       drawer: MyDrawer(),
-//      bottomNavigationBar: BottomNavigationBar(
-//        items: [
-//          BottomNavigationBarItem(title: Text("Home"), icon: Icon(Icons.home)),
-//          BottomNavigationBarItem(
-//              icon: Icon(Icons.business), title: Text("Business")),
-//          BottomNavigationBarItem(
-//              icon: Icon(Icons.school), title: Text("School"))
-//        ],
-//        currentIndex: _selectedIndex,
-//        fixedColor: Colors.blue,
-//        onTap: _onItemTapped,
-//      ),
+//      bottomNavigationBar: sampleBottomNavigationBarItem(),
       bottomNavigationBar: BottomAppBarTest(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),
       ),
+      //TabBarView可以实现Tab页，同时可以配合TabBar实现同步切换和滑动状态同步。通过TabController监听Tab菜单的切换来切换Tab页。
       body: TabBarView(
           controller: _tabController,
           children: tabs.map((e) {
@@ -80,6 +73,21 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
     );
   }
 
+  ///使用BottomNavigationBarItem实现图片和文字结合的效果
+  BottomNavigationBar sampleBottomNavigationBarItem() {
+    return BottomNavigationBar(
+      items: [
+        BottomNavigationBarItem(title: Text("Home"), icon: Icon(Icons.home)),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.business), title: Text("Business")),
+        BottomNavigationBarItem(icon: Icon(Icons.school), title: Text("School"))
+      ],
+      currentIndex: _selectedIndex,
+      fixedColor: Colors.blue,
+      onTap: _onItemTapped,
+    );
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -87,6 +95,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
   }
 }
 
+//通过Scaffold的bottomNavigationBar属性来设置底部导航
 //BottomAppBar 组件，它可以和FloatingActionButton配合实现这种“打洞”效果
 class BottomAppBarTest extends StatelessWidget {
   @override
@@ -113,6 +122,7 @@ class BottomAppBarTest extends StatelessWidget {
   }
 }
 
+///另一种形式的抽屉菜单
 class SecondDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -161,27 +171,9 @@ class MyDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          ///DrawerHelper主要用来显示用户账号信息
           DrawerHeader(
-            child: Padding(
-              padding: EdgeInsets.only(top: 28),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: ClipOval(
-                      child: Image.asset(
-                        "assets/ic_avatar.png",
-                        width: 60,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "Quest",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-            ),
+            child: buildPadding(),
             decoration: BoxDecoration(color: Colors.blue),
           ),
           //此处需要注意，ListView需要用Expanded包裹，否则Drawer会显示失败，原因暂未知。
@@ -202,5 +194,57 @@ class MyDrawer extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  ///构建一个普通的Widget
+  Padding buildPadding() {
+    return Padding(
+      padding: EdgeInsets.only(top: 28),
+      child: Row(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: ClipOval(
+              child: Image.asset(
+                "assets/ic_avatar.png",
+                width: 60,
+              ),
+            ),
+          ),
+          Text(
+            "Quest",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+///使用MediaQuery.removePadding，但目前我还不熟悉它的源码。
+class RemovePaddingSample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MediaQuery.removePadding(
+        context: context,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 0),
+              child: ClipOval(
+                child: Image.asset(
+                  "assets/ic_avatar.png",
+                  width: 100,
+                  height: 100,
+                ),
+              ),
+            ),
+            Text(
+              "Quest",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )
+          ],
+        ));
   }
 }
