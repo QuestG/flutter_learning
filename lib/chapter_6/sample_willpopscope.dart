@@ -17,6 +17,9 @@ class _WillPopScopeTestState extends State<WillPopScopeTest> {
       appBar: AppBar(
         title: Text("WillPopScope 返回拦截"),
       ),
+      //为了避免用户误触返回按钮而导致APP退出，在很多APP中都拦截了用户点击返回键的按钮，然后进行一些防误触判断，
+      //比如当用户在某一个时间段内点击两次时，才会认为用户是要退出（而非误触）。
+      //Flutter中可以通过WillPopScope来实现返回按钮拦截。
       body: WillPopScope(
           child: Container(
             child: Text("1秒内连续按两次返回键退出"),

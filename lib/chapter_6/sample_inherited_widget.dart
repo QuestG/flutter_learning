@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+//InheritedWidget是Flutter中非常重要的一个功能型组件，它提供了一种数据在widget树中从上到下传递、共享的方式，
+//比如我们在应用的根widget中通过InheritedWidget共享了一个数据，那么我们便可以在任意子widget中来获取该共享的数据。
+//这个特性在一些需要在widget树中共享数据的场景中非常方便：
+//如Flutter SDK中正是通过InheritedWidget来共享应用主题（Theme）和Locale (当前语言环境)信息的。
 class InheritedWidgetTest extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -7,11 +11,10 @@ class InheritedWidgetTest extends StatefulWidget {
   }
 }
 
-//StatefulWidget时，我们提到State对象有一个didChangeDependencies回调，它会在“依赖”发生
-// 变化时被Flutter Framework调用。而这个“依赖”指的就是子widget是否使用了父widget中
-// InheritedWidget的数据！
+// State对象有一个didChangeDependencies回调，它会在“依赖”发生变化时被Flutter Framework调用。
+// 而这个“依赖”指的就是子widget是否使用了父widget中InheritedWidget的数据。
 // 如果使用了，则代表子widget依赖有依赖InheritedWidget；如果没有使用则代表没有依赖。
-// 这种机制可以使子组件在所依赖的InheritedWidget变化时来更新自身！
+// 这种机制可以使子组件在所依赖的InheritedWidget变化时来更新自身。
 class _InheritedWidgetTestState extends State<InheritedWidgetTest> {
   int _count = 0;
 
@@ -51,6 +54,8 @@ class _CounterTest extends StatefulWidget {
 }
 
 class _CounterTestState extends State<_CounterTest> {
+  //如果build方法中没有使用ShareDataWidget中共享的数据，
+  //那么该Widget的didChangeDependencies()将不会被调用，因为它并没有依赖ShareDataWidget。
   @override
   Widget build(BuildContext context) {
     //使用InheritedWidget中的共享数据
@@ -67,8 +72,8 @@ class _CounterTestState extends State<_CounterTest> {
   }
 }
 
-//InheritedWidget提供了一种数据在widget树中从上到下传递、共享的方式，比如我们在应用的
-// 根widget中通过InheritedWidget共享了一个数据，那么我们便可以在任意子widget中来获取该共享的数据！
+//InheritedWidget提供了一种数据在widget树中从上到下传递、共享的方式，
+//比如我们在应用的根widget中通过InheritedWidget共享了一个数据，那么我们便可以在任意子widget中来获取该共享的数据。
 class ShareDataWidget extends InheritedWidget {
   ShareDataWidget({@required this.data, Widget child}) : super(child: child);
 
