@@ -52,6 +52,8 @@ FlutterErrorDetails makeDetails(Object error, StackTrace stackTrace) {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ///MaterialApp 国际化需要指定 localizationsDelegates
+    ///基于 WidgetsApp 构建的 app 在添加语言环境时，除了 GlobalMaterialLocalizations.delegate 不需要之外，其他的操作是类似的。
     return MaterialApp(
       title: 'Flutter Learning',
       theme: ThemeData(
@@ -73,6 +75,12 @@ class Home extends StatelessWidget {
         // GlobalMaterialLocalizations.delegate 为Material 组件库提供的本地化的字符串和其他值，
         // 它可以使Material 组件支持多语言。
         // GlobalWidgetsLocalizations.delegate定义组件默认的文本方向，从左到右或从右到左，
+        //Flutter package 包括的 MaterialLocalizations 和 WidgetsLocalizations 的接口都只提供美式英语的值，
+        // 这样使得它尽可能小而简单。这些实现的类被分别称为 DefaultMaterialLocalizations 和 DefaultWidgetsLocalizations。
+        // 它们会被自动地引入程序，除非你在 localizationsDelegates 参数中，相同的基本类型指定了一个不同的 delegate。
+        //
+        //flutter_localizations package 包括了多种语言本地化接口的实现，它们称为 GlobalMaterialLocalizations 和 GlobalWidgetsLocalizations。
+        //国际化 app 必须为这些类的指定本地化 delegate，
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
 
@@ -81,7 +89,23 @@ class Home extends StatelessWidget {
         //使用Intl包的代理
         SampleLocalizationsDelegate()
       ],
-      supportedLocales: [const Locale("en", "US"), const Locale("zh", "CN")],
+
+      ///虽然 语言环境 (Locale) 默认的构造函数是完全没有问题的，但是还是建议大家使用 Locale.fromSubtags 的构造函数，因为它支持设置文字代码。
+      ///MaterialApp 的 supportedLocales 参数限制了语言环境的变化范围。当用户在他们的设备切换语言环境的时候，
+      ///只有当新语言环境是 supportedLocales 列表项中之一时， app 的 Localizations widget 才会跟着一起变。
+      ///如果这个设备的语言环境不能被精确匹配， languageCode 相同的第一个支持的语言环境会被使用。
+      ///如果这个也失败了，那就会使用 supportedLocales 的第一个语言环境。
+      supportedLocales: [
+        const Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
+        const Locale("zh", "CN")
+      ],
+
+      ///如果一个 app 想要使用不同的语言环境解析方案，它可以提供一个 localeResolutionCallback。
+      localeResolutionCallback:
+          //此为举例：让ap无条件接受用户选择的任何语言环境。
+          (Locale locale, Iterable<Locale> supportedLocales) {
+        return locale;
+      },
     );
   }
 }

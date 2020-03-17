@@ -63,7 +63,6 @@ class SampleLocalizationsDelegate
   // Flutter会调用此类加载相应的Locale资源类
   @override
   Future<SampleLocalizations> load(Locale locale) {
-    //3
     return SampleLocalizations.load(locale);
   }
 
