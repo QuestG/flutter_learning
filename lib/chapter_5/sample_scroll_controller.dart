@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 ///收到滚动事件后获得的信息不同；NotificationListener在收到滚动事件时，
 ///通知中会携带当前滚动位置和ViewPort的一些信息，而ScrollController只能获取当前滚动位置。
 
+//ScrollController控制原理（看源码）：
 //ScrollPosition是用来保存可滚动组件的滚动位置的。一个ScrollController对象可以同时被多个
 //可滚动组件使用，ScrollController会为每一个可滚动组件创建一个ScrollPosition对象，
 //这些ScrollPosition保存在ScrollController的positions属性中（List<ScrollPosition>）。
@@ -33,6 +34,10 @@ class ScrollControllerTest extends StatefulWidget {
 }
 
 class _ScrollControllerTestState extends State<ScrollControllerTest> {
+  //ScrollController常用的属性和方法：
+  //offset：可滚动组件当前的滚动位置。
+  //jumpTo(double offset)、animateTo(double offset,...)：这两个方法用于跳转到指定的位置，
+  //它们不同之处在于，后者在跳转时会执行一个动画，而前者不会。
   ScrollController _controller = ScrollController();
 
   //是否显示"返回顶部"按钮

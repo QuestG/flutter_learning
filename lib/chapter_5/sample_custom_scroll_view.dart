@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-//为了能让可滚动组件能和CustomScrollView配合使用，Flutter提供了一些可滚动组件的Sliver版，
+//CustomScrollView是可以使用Sliver来自定义滚动模型（效果）的组件。它可以包含多种滚动模型。
+//在CustomScrollView中，需要粘起来的可滚动组件就是CustomScrollView的Sliver了，
+//如果直接将ListView、GridView作为CustomScrollView是不行的，因为它们本身是可滚动组件而并不是Sliver。
+//为了能让可滚动组件能和CustomScrollView配合使用，Flutter提供了一些可滚动组件的Sliver版本，
 // 如SliverList、SliverGrid等。
-// 实际上Sliver版的可滚动组件和非Sliver版的可滚动组件最大的区别就是
+// 实际上Sliver版本的可滚动组件和非Sliver版本的可滚动组件最大的区别就是
 // 前者不包含滚动模型（自身不能再滚动），而后者包含滚动模型 ，也正因如此，
 // CustomScrollView才可以将多个Sliver"粘"在一起，
 // 这些Sliver共用CustomScrollView的Scrollable，所以最终才实现了统一的滑动效果。
@@ -17,6 +20,7 @@ class CustomScrollViewTest extends StatelessWidget {
     return Material(
       child: CustomScrollView(
         slivers: <Widget>[
+          //包含一个可滚动的AppBar，SliverAppBar可以结合FlexibleSpaceBar实现Material Design中头部伸缩的模型。
           SliverAppBar(
             pinned: true,
             expandedHeight: 250,
@@ -30,6 +34,8 @@ class CustomScrollViewTest extends StatelessWidget {
           ),
           SliverPadding(
             padding: EdgeInsets.all(16),
+            //它用SliverPadding包裹以给SliverGrid添加补白。
+            //这里的SliverGrid实例被设置为一个两列，宽高比为4的网格，它有20个子组件。
             sliver: SliverGrid(
                 delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
