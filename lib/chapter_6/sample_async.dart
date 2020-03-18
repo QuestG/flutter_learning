@@ -7,6 +7,7 @@ class FutureAndStreamBuilderTest extends StatefulWidget {
   }
 }
 
+///Flutter专门提供了FutureBuilder和StreamBuilder两个组件来快速异步UI更新的功能。
 class _FutureAndStreamBuilderTestState
     extends State<FutureAndStreamBuilderTest> {
   @override
@@ -23,6 +24,11 @@ class _FutureAndStreamBuilderTestState
                 alignment: Alignment.center,
                 width: double.infinity,
                 height: 150,
+
+                ///FutureBuilder会依赖一个Future，它会根据所依赖的Future的状态来动态构建自身。
+                ///future：FutureBuilder依赖的Future，通常是一个异步耗时任务。
+                ///initialData：初始数据，用户设置默认数据。
+                ///builder：Widget构建器；该构建器会在Future执行的不同阶段被多次调用。
                 child: FutureBuilder(
                     future: mockNetworkData(),
                     builder: (context, snapshot) {
@@ -37,6 +43,9 @@ class _FutureAndStreamBuilderTestState
                       }
                     }),
               ),
+
+              ///Stream也用于接收异步事件数据，它可以接收多个异步操作的结果，它常用于会多次读取数据的异步任务场景，如网络内容下载、文件读写等。
+              ///StreamBuilder正是用于配合Stream来展示流上事件（数据）变化的UI组件。
               StreamBuilder<int>(
                   stream: counter(),
                   builder: (context, snapshot) {

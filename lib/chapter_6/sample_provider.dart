@@ -2,6 +2,15 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 
+///在Flutter开发中，状态管理是一个永恒的话题。一般的原则是：如果状态是组件私有的，则应该由组件自己管理；
+///如果状态要跨组件共享，则该状态应该由各个组件共同的父元素来管理。
+///对于跨组件共享的状态，管理的方式就比较多了，如使用全局事件总线EventBus，它是一个观察者模式的实现，通过它就可以实现跨组件状态同步：
+///状态持有方（发布者）负责更新、发布状态，状态使用方（观察者）监听状态改变事件来执行一些操作。
+///
+///通过观察者模式来实现跨组件状态共享有一些明显的缺点：
+///1）必须显式定义各种事件，不好管理
+///2）订阅者必须需显式注册状态改变回调，也必须在组件销毁时手动去解绑回调以避免内存泄露。
+
 //通用的InheritedWidget，保存任何需要跨组件共享的状态
 class InheritedProvider<T> extends InheritedWidget {
   InheritedProvider({@required this.data, Widget child}) : super(child: child);
