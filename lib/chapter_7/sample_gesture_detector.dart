@@ -80,10 +80,11 @@ class _SampleGestureDetector1State extends State<SampleGestureDetector1> {
           onDoubleTap: () => _updateText("Double Tap"),
           onLongPress: () => _updateText("LongPress"),
         ),
-        //GestureDetector内部是使用一个或多个GestureRecognizer来识别各种手势的，
-        // 而GestureRecognizer的作用就是通过Listener来将原始指针事件转换为语义手势，
-        //GestureRecognizer是一个抽象类，一种手势的识别器对应一个GestureRecognizer的子类，
-        //Flutter实现了丰富的手势识别器，可以直接使用。
+
+        ///GestureDetector内部是使用一个或多个GestureRecognizer来识别各种手势的，
+        ///而GestureRecognizer的作用就是通过Listener来将原始指针事件转换为语义手势，
+        ///GestureRecognizer是一个抽象类，一种手势的识别器对应一个GestureRecognizer的子类，
+        ///Flutter实现了丰富的手势识别器，可以直接使用。
         Text.rich(TextSpan(children: [
           TextSpan(text: "你好世界"),
           TextSpan(
@@ -156,7 +157,7 @@ class _DragTestState extends State<_DragTest> {
                 //打印手指按下的位置(相对于屏幕)
                 print("用户手指按下：${details.globalPosition}");
               },
-              //手指滑动时会出啊发此回调
+              //手指滑动时会出触发此回调
               onPanUpdate: (details) {
                 setState(() {
                   _top += details.delta.dy;

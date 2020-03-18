@@ -29,6 +29,7 @@ class _PointerEventTestState extends State<PointerEventTest> {
       ),
       body: Column(
         children: <Widget>[
+          ///Flutter中可以使用Listener来监听原始触摸事件
           Listener(
             child: Container(
               alignment: Alignment.center,
@@ -66,6 +67,10 @@ class _PointerEventTestState extends State<PointerEventTest> {
                           ),
                         ),
                         onPointerDown: (event) => print("down1"),
+                        //behavior属性，它决定子组件如何响应命中测试，它的值类型为HitTestBehavior，这是一个枚举类，有三个枚举值：
+                        //1)deferToChild：子组件会一个接一个的进行命中测试，如果子组件中有测试通过的，则当前组件通过，这就意味着，如果指针事件作用于子组件上时，其父级组件也肯定可以收到该事件。
+                        //2)opaque：在命中测试时，将当前组件当成不透明处理(即使本身是透明的)，最终的效果相当于当前Widget的整个区域都是点击区域。
+                        //3)translucent：当点击组件透明区域时，可以对自身边界内及底部可视区域都进行命中测试，这意味着点击顶部组件透明区域时，顶部组件和底部组件都可以接收到事件
                         behavior: HitTestBehavior.opaque,
 //                        behavior: HitTestBehavior.translucent,
                       ),
@@ -79,18 +84,23 @@ class _PointerEventTestState extends State<PointerEventTest> {
           //假如我们不想让某个子树响应PointerEvent的话，我们可以使用IgnorePointer和AbsorbPointer，
           // 这两个组件都能阻止子树接收指针事件，不同之处在于AbsorbPointer本身会参与命中测试，
           // 而IgnorePointer本身不会参与，这就意味着AbsorbPointer本身是可以接收指针事件的(但其子树不行)，而IgnorePointer不可以。
-          Listener(
-            child: AbsorbPointer(
-              child: Listener(
-                child: Container(
-                  color: Colors.red,
-                  width: 200.0,
-                  height: 100.0,
+          Padding(
+            padding: EdgeInsets.only(top: 12),
+            child: Listener(
+              child: AbsorbPointer(
+                child: Listener(
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.red,
+                    width: 200.0,
+                    height: 100.0,
+                    child: Text("此Widget不响应指针事件"),
+                  ),
+                  onPointerDown: (event) => print("in"),
                 ),
-                onPointerDown: (event) => print("in"),
               ),
+              onPointerDown: (event) => print("up"),
             ),
-            onPointerDown: (event) => print("up"),
           )
         ],
       ),
