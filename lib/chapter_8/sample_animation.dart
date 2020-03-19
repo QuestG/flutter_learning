@@ -82,6 +82,9 @@ class _ScaleAnimationRouteState extends State<ScaleAnimationRoute>
     //图片高度从0到300
     animation = Tween(begin: 0.0, end: 300.0).animate(animation)
       ..addListener(() {
+        //每次动画生成一个新的数字时，当前帧被标记为脏(dirty)，这会导致widget的build()方法再次被调用，
+        // 而在build()中，改变Image的宽高，因为它的高度和宽度现在使用的是animation.value ，所以就会逐渐放大。
+        // 值得注意的是动画完成时要释放控制器(调用dispose()方法)以防止内存泄漏。
         setState(() {});
       });
     //启动动画（正向执行）
@@ -248,6 +251,8 @@ class GrowTransition extends StatelessWidget {
   }
 }
 
+///无论是MaterialPageRoute、CupertinoPageRoute，还是PageRouteBuilder，它们都继承自PageRoute类，
+///而PageRouteBuilder其实只是PageRoute的一个包装，我们可以直接继承PageRoute类来实现自定义路由
 class FadeRoute extends PageRoute {
   FadeRoute({
     @required this.builder,

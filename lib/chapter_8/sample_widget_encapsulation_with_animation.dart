@@ -176,6 +176,9 @@ class _WidgetEncapsulationWithAnimationState
 
 ///自定义DecoratedBox的过渡动画，在decoration属性变化时执行。
 class AnimatedDecoratedBox1 extends StatefulWidget {
+  //使用动画过渡组件时如果需要执行反向动画的场景，应尽量使用状态互换的方法，而不应该通过获取ImplicitlyAnimatedWidgetState中controller的方式。
+  //
+  //如果我们自定义的动画过渡组件用不到reverseDuration ，那么最好就不要暴露此参数，
   AnimatedDecoratedBox1(
       {Key key,
       @required this.decoration,

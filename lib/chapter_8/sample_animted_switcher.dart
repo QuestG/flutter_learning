@@ -20,6 +20,18 @@ class _AnimatedSwitcherTestState extends State<AnimatedSwitcherTest> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          ///```
+          ///const AnimatedSwitcher({
+          ///  Key key,
+          ///  this.child,
+          ///  @required this.duration, // 新child显示动画时长
+          ///  this.reverseDuration,// 旧child隐藏的动画时长
+          ///  this.switchInCurve = Curves.linear, // 新child显示的动画曲线
+          ///  this.switchOutCurve = Curves.linear,// 旧child隐藏的动画曲线
+          ///  this.transitionBuilder = AnimatedSwitcher.defaultTransitionBuilder, // 动画构建器
+          ///  this.layoutBuilder = AnimatedSwitcher.defaultLayoutBuilder, //布局构建器
+          ///})
+          ///```
           //AnimatedSwitcher的新旧child，如果类型相同，则Key必须不相等。
           AnimatedSwitcher(
             duration: Duration(milliseconds: 300),
