@@ -46,9 +46,8 @@ class _SocketRouteState extends State<SocketRoute> {
     //发送请求
     await socket.flush();
     //读取返回内容
-    String result =
-        await socket.transform(Converter.castFrom(utf8.decoder)).join();
-    print("result: $result");
+    _response = await socket.transform(Converter.castFrom(utf8.decoder)).join();
+    setState(() {});
     await socket.close();
   }
 }

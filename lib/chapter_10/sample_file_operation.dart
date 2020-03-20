@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 ///path_provider插件提供了一种平台透明的方式来访问设备文件系统上的常用位置。
 ///
@@ -29,37 +28,22 @@ class _FileOperationTestState extends State<FileOperationTest> {
   int _counter;
 
   Future<File> _getLocalFile() async {
-    PermissionStatus permissionStatus = await PermissionHandler()
-        .checkPermissionStatus(PermissionGroup.storage);
-    print("status: $permissionStatus");
-    if (permissionStatus == PermissionStatus.granted) {
-      String dir = (await getExternalStorageDirectory()).path;
-      print("dir $dir");
-      return File("$dir/counter.txt");
-    } else {
-      print("permission denied");
-      return null;
-    }
+    var dir = (await getApplicationDocumentsDirectory()).path;
+    return File('$dir/counter.txt');
   }
 
   Future<Null> _incrementCounter() async {
     setState(() {
-      print(4);
       _counter++;
     });
     //将点击次数以字符串形式写入文件
-    print(5);
     await (await _getLocalFile()).writeAsString("$_counter");
-    print(6);
   }
 
   Future<int> _readCounter() async {
     try {
-      print(0);
       File file = await _getLocalFile();
-      print(1);
       String contents = await file.readAsString();
-      print(2);
       return int.parse(contents);
     } on FileSystemException {
       return 0;
@@ -71,7 +55,6 @@ class _FileOperationTestState extends State<FileOperationTest> {
     super.initState();
     _readCounter().then((int value) {
       setState(() {
-        print(3);
         _counter = value;
       });
     });

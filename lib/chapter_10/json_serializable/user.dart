@@ -3,6 +3,10 @@ import 'package:json_annotation/json_annotation.dart';
 part 'user.g.dart';
 
 ///这个标注是告诉生成器，这个类是需要生成Model类的
+///如果User类中的属性包含了第三方类，需要在类声明之前为 @JsonSerializable 方法加入 explicitToJson: true 参数。
+///同时第三方类也需要使用json_serializable来进行标注。
+///@JsonSerializable(explicitToJson: true)
+///详情可以查阅文档：https://pub.flutter-io.cn/documentation/json_annotation/latest/json_annotation/JsonSerializable-class.html
 @JsonSerializable()
 class User {
   User(this.name, this.email);

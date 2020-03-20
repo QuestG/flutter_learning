@@ -36,7 +36,7 @@ class _WebSocketRouteState extends State<WebSocketRoute> {
   @override
   void initState() {
     super.initState();
-    //创建WebSocket连接
+    //创建WebSocket连接,这里的服务器是websocket.org提供的测试服务器
     channel = IOWebSocketChannel.connect("ws://echo.websocket.org");
   }
 

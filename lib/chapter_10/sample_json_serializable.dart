@@ -7,7 +7,7 @@ import 'package:flutter_learning/chapter_10/json_serializable/user.dart';
 class JsonSerializableRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String jsonTest = '{"name":"suogui","email":"suogui@iflytek.com"}';
+    String jsonTest = '{"name":"quest","email":"quest@workharder.com"}';
 
     User user = User.fromJson(json.decode(jsonTest));
 

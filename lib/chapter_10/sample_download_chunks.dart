@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_10/sample_package_dio.dart';
 
 ///分块下载
 ///Http协议定义了分块传输的响应header字段，但具体是否支持取决于Server的实现，我们可以指定
@@ -29,6 +28,8 @@ class _DownloadChunksTestState extends State<DownloadChunksTest> {
 
   int _progress = 0;
 
+  Dio _dio = Dio();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,7 @@ class _DownloadChunksTestState extends State<DownloadChunksTest> {
             Text("下载进度:$_progress%"),
             RaisedButton(
               onPressed: () async {
-                await downloadWithChunks(url, savePath,
+                await downloadWithChunks(_dio, url, savePath,
                     onReceiveProgress: (received, total) {
                   if (total != -1) {
                     setState(() {
@@ -61,12 +62,12 @@ class _DownloadChunksTestState extends State<DownloadChunksTest> {
   @override
   void dispose() {
     //关闭所有的请求
-    DioInstance().dio.close();
+    _dio.close();
     super.dispose();
   }
 }
 
-Future downloadWithChunks(url, savePath,
+Future downloadWithChunks(_dio, url, savePath,
     {ProgressCallback onReceiveProgress}) async {
   const firstChunkSize = 102; //第一个文件块的大小
   const maxChunk = 3; //最多同时下载的文件块数量
@@ -86,7 +87,7 @@ Future downloadWithChunks(url, savePath,
   Future<Response> downloadChunk(url, start, end, no) async {
     progress.add(0);
     --end;
-    return DioInstance().dio.download(url, savePath + "temp$no",
+    return _dio.download(url, savePath + "temp$no",
         onReceiveProgress: createCallback(no),
         options: Options(headers: {"range": "bytes=$start-$end"}));
   }
