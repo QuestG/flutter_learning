@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_10/sample_download_chunks.dart';
-import 'package:flutter_learning/chapter_10/sample_file_operation.dart';
-import 'package:flutter_learning/chapter_10/sample_httpclient.dart';
-import 'package:flutter_learning/chapter_10/sample_json_serializable.dart';
-import 'package:flutter_learning/chapter_10/sample_package_dio.dart';
-import 'package:flutter_learning/chapter_10/sample_socket.dart';
-import 'package:flutter_learning/chapter_10/sample_webscoket.dart';
+import 'package:flutter_learning/chapter_functional_widgets/sample_async.dart';
+import 'package:flutter_learning/chapter_functional_widgets/sample_color_theme.dart';
+import 'package:flutter_learning/chapter_functional_widgets/sample_dialog.dart';
+import 'package:flutter_learning/chapter_functional_widgets/sample_inherited_widget.dart';
+import 'package:flutter_learning/chapter_functional_widgets/sample_provider.dart';
+import 'package:flutter_learning/chapter_functional_widgets/sample_willpopscope.dart';
 
+///功能型Widget指的是不会影响UI布局及外观的Widget，它们通常具有一定的功能，如事件监听、数据存储等，
+///功能型Widget非常多
 // ignore: must_be_immutable
-class NaviChapter10 extends StatelessWidget {
+class NaviChapterFunctionalWidgets extends StatelessWidget {
   var itemTitles = [
-    "10.1 文件操作",
-    "10.2 Http请求-HttpClient",
-    "10.3 Http请求-Dio package",
-    "10.4 实例：Http分块下载",
-    "10.5 WebSocket",
-    "10.6 使用Socket API",
-    "10.7 Json转Dart model类",
+    "6.1 WillPopScope",
+    "6.2 InheritedWidget",
+    "6.3 Provider",
+    "6.4 Theme",
+    "6.5 异步UI更新",
+    "6.6 对话框详解",
   ];
 
   var itemWidgets = [
-    FileOperationTest(),
-    HttpTestRoute(),
-    DioTest(),
-    DownloadChunksTest(),
-    WebSocketRoute(),
-    SocketRoute(),
-    JsonSerializableRoute()
+    WillPopScopeTest(),
+    InheritedWidgetTest(),
+    ProviderRoute(),
+    ColorThemeTest(),
+    FutureAndStreamBuilderTest(),
+    DialogTest()
   ];
 
   @override

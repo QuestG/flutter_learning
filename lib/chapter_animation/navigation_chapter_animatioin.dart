@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_8/sample_animation.dart';
-import 'package:flutter_learning/chapter_8/sample_animted_switcher.dart';
-import 'package:flutter_learning/chapter_8/sample_hero.dart';
-import 'package:flutter_learning/chapter_8/sample_stagger_animation.dart';
-import 'package:flutter_learning/chapter_8/sample_widget_encapsulation_with_animation.dart';
+import 'package:flutter_learning/chapter_animation/sample_animation.dart';
+import 'package:flutter_learning/chapter_animation/sample_animted_switcher.dart';
+import 'package:flutter_learning/chapter_animation/sample_hero.dart';
+import 'package:flutter_learning/chapter_animation/sample_stagger_animation.dart';
+import 'package:flutter_learning/chapter_animation/sample_widget_encapsulation_with_animation.dart';
 
 // ignore: must_be_immutable
-class NaviChapter8 extends StatelessWidget {
+class NaviChapterAnimation extends StatelessWidget {
   var itemTitles = [
     "8.1 动画结构、自定义路由过渡动画",
     "8.2 Hero动画",

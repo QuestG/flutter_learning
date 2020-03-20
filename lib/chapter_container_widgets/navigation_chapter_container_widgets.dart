@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_6/sample_async.dart';
-import 'package:flutter_learning/chapter_6/sample_color_theme.dart';
-import 'package:flutter_learning/chapter_6/sample_dialog.dart';
-import 'package:flutter_learning/chapter_6/sample_inherited_widget.dart';
-import 'package:flutter_learning/chapter_6/sample_provider.dart';
-import 'package:flutter_learning/chapter_6/sample_willpopscope.dart';
+import 'package:flutter_learning/chapter_container_widgets/sample_clip.dart';
+import 'package:flutter_learning/chapter_container_widgets/sample_container.dart';
+import 'package:flutter_learning/chapter_container_widgets/sample_decorated_box.dart';
+import 'package:flutter_learning/chapter_container_widgets/sample_padding.dart';
+import 'package:flutter_learning/chapter_container_widgets/sample_scaffold.dart';
+import 'package:flutter_learning/chapter_container_widgets/sample_sized_widget.dart';
+import 'package:flutter_learning/chapter_container_widgets/sample_transform.dart';
 
-///功能型Widget指的是不会影响UI布局及外观的Widget，它们通常具有一定的功能，如事件监听、数据存储等，
-///功能型Widget非常多
 // ignore: must_be_immutable
-class NaviChapter6 extends StatelessWidget {
+class NaviChapterContainerWidgets extends StatelessWidget {
   var itemTitles = [
-    "6.1 WillPopScope",
-    "6.2 InheritedWidget",
-    "6.3 Provider",
-    "6.4 Theme",
-    "6.5 异步UI更新",
-    "6.6 对话框详解",
+    "4.1 Padding",
+    "4.2 尺寸限制类容器",
+    "4.3 DecoratedBox",
+    "4.4 Transform",
+    "4.5 Container",
+    "4.6 Scaffold、TabBar、底部导航",
+    "4.7 Clip"
   ];
 
   var itemWidgets = [
-    WillPopScopeTest(),
-    InheritedWidgetTest(),
-    ProviderRoute(),
-    ColorThemeTest(),
-    FutureAndStreamBuilderTest(),
-    DialogTest()
+    PaddingTest(),
+    SizeWidgetTest(),
+    DecoratedBoxTest(),
+    TransformTest(),
+    ContainerTest(),
+    ScaffoldRoute(),
+    ClipTest()
   ];
 
   @override

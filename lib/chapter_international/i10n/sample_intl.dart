@@ -9,7 +9,7 @@ import 'arb/messages_all.dart';
 ///2、创建文字资源文件，参考SampleLocalizations
 ///
 ///3、生成arb文件，命令行：flutter pub pub run intl_translation:extract_to_arb --output-dir=<arb文件存放路径> <文字资源文件路径>
-///示例：flutter pub pub run intl_translation:extract_to_arb --output-dir=lib/chapter_12/i10n/arb lib/chapter_12/i10n/sample_intl.dart
+///示例：flutter pub pub run intl_translation:extract_to_arb --output-dir=lib/chapter_international/i10n/arb lib/chapter_international/i10n/sample_intl.dart
 ///
 ///4、新增和修改arb文件：对步骤3生成的intl_message.arb文件复制内容，同目录下新增intl_en.arb和intl_zh.arb。文件名规则可以自己定。
 ///

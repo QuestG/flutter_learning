@@ -1,32 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_4/sample_clip.dart';
-import 'package:flutter_learning/chapter_4/sample_container.dart';
-import 'package:flutter_learning/chapter_4/sample_decorated_box.dart';
-import 'package:flutter_learning/chapter_4/sample_padding.dart';
-import 'package:flutter_learning/chapter_4/sample_scaffold.dart';
-import 'package:flutter_learning/chapter_4/sample_sized_widget.dart';
-import 'package:flutter_learning/chapter_4/sample_transform.dart';
+import 'package:flutter_learning/chapter_widgets_to_layout/sample_align.dart';
+import 'package:flutter_learning/chapter_widgets_to_layout/sample_flex_expanded.dart';
+import 'package:flutter_learning/chapter_widgets_to_layout/sample_row_column.dart';
+import 'package:flutter_learning/chapter_widgets_to_layout/sample_stack_positioned.dart';
+import 'package:flutter_learning/chapter_widgets_to_layout/sample_wrap_flow.dart';
 
 // ignore: must_be_immutable
-class NaviChapter4 extends StatelessWidget {
+class NaviChapterWidgetsToLayout extends StatelessWidget {
   var itemTitles = [
-    "4.1 Padding",
-    "4.2 尺寸限制类容器",
-    "4.3 DecoratedBox",
-    "4.4 Transform",
-    "4.5 Container",
-    "4.6 Scaffold、TabBar、底部导航",
-    "4.7 Clip"
+    "3.1 线性布局（Row、Column）",
+    "3.2 弹性布局（Flex）",
+    "3.3 流式布局（Wrap、Flow）",
+    "3.4 层叠布局（Stack、Positioned）",
+    "3.5 对齐与相对定位（Align）",
   ];
 
   var itemWidgets = [
-    PaddingTest(),
-    SizeWidgetTest(),
-    DecoratedBoxTest(),
-    TransformTest(),
-    ContainerTest(),
-    ScaffoldRoute(),
-    ClipTest()
+    RowColumnRoute(),
+    FlexRoute(),
+    WrapFlowRoute(),
+    StackTest(),
+    AlignTest()
   ];
 
   @override

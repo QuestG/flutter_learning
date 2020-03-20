@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_1/sample_counter.dart';
-import 'package:flutter_learning/chapter_1/sample_package_assets_management.dart';
-import 'package:flutter_learning/chapter_1/sample_route_management.dart';
+import 'package:flutter_learning/chapter_flutter_start/sample_counter.dart';
+import 'package:flutter_learning/chapter_flutter_start/sample_package_assets_management.dart';
+import 'package:flutter_learning/chapter_flutter_start/sample_route_management.dart';
 
-class NaviChapter1 extends StatelessWidget {
+class NaviChapterFlutterStart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> titleList = [

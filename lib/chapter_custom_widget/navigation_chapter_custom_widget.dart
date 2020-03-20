@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_11/sample_flutter_texture.dart';
-import 'package:flutter_learning/chapter_11/sample_native_webview.dart';
-import 'package:flutter_learning/chapter_11/sample_plugin.dart';
+import 'package:flutter_learning/chapter_custom_widget/sample_compose_widgets.dart';
+import 'package:flutter_learning/chapter_custom_widget/sample_custom_paint.dart';
+import 'package:flutter_learning/chapter_custom_widget/sample_gradient_circular_progress_indicator.dart';
+import 'package:flutter_learning/chapter_custom_widget/sample_turn_box.dart';
 
+//自定义组件有三种方式：通过组合其它组件、自绘和实现RenderObject
+//自绘可以通过Flutter中提供的CustomPaint和Canvas来实现UI自绘。
+//自绘和通过实现RenderObject的方法本质上是一样的，都需要开发者调用Canvas API手动去绘制UI，
+//优点是强大灵活，理论上可以实现任何外观的UI，而缺点是必须了解Canvas API细节，并且得自己去实现绘制逻辑。
 // ignore: must_be_immutable
-class NaviChapter11 extends StatelessWidget {
+class NaviChapterCustomWidget extends StatelessWidget {
   var itemTitles = [
-    "11.1 Flutter与原生插件开发",
-    "11.2 Flutter与原生共享图像（Texture）",
-    "11.3 Flutter中嵌套原生组件(示例：WebView)"
+    "9.1 组合现有组件",
+    "9.2 组合实例：TurnBox",
+    "9.3 自绘组件",
+    "9.4 自绘实例：圆形渐变进度条",
   ];
 
-  var itemWidgets = [PluginTestRoute(), CameraExampleHome(), WebViewRoute()];
+  var itemWidgets = [
+    ComposeWidgetsTest(),
+    TurnBoxTest(),
+    CustomPaintTest(),
+    GradientCircularProgressRoute()
+  ];
 
   @override
   Widget build(BuildContext context) {

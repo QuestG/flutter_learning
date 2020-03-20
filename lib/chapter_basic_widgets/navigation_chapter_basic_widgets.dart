@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_2/sample_button.dart';
-import 'package:flutter_learning/chapter_2/sample_image_icon.dart';
-import 'package:flutter_learning/chapter_2/sample_progress_indicator.dart';
-import 'package:flutter_learning/chapter_2/sample_state_management.dart';
-import 'package:flutter_learning/chapter_2/sample_switch_check_box.dart';
-import 'package:flutter_learning/chapter_2/sample_text.dart';
-import 'package:flutter_learning/chapter_2/sample_textfield_form.dart';
-import 'package:flutter_learning/chapter_2/sample_widget_intro.dart';
+import 'package:flutter_learning/chapter_basic_widgets/sample_button.dart';
+import 'package:flutter_learning/chapter_basic_widgets/sample_image_icon.dart';
+import 'package:flutter_learning/chapter_basic_widgets/sample_progress_indicator.dart';
+import 'package:flutter_learning/chapter_basic_widgets/sample_state_management.dart';
+import 'package:flutter_learning/chapter_basic_widgets/sample_switch_check_box.dart';
+import 'package:flutter_learning/chapter_basic_widgets/sample_text.dart';
+import 'package:flutter_learning/chapter_basic_widgets/sample_textfield_form.dart';
+import 'package:flutter_learning/chapter_basic_widgets/sample_widget_intro.dart';
 
-class NaviChapter2 extends StatelessWidget {
+class NaviChapterBasicWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> titleList = [

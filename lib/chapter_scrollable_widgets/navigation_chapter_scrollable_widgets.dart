@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_5/sample_custom_scroll_view.dart';
-import 'package:flutter_learning/chapter_5/sample_gridview.dart';
-import 'package:flutter_learning/chapter_5/sample_listview.dart';
-import 'package:flutter_learning/chapter_5/sample_scroll_controller.dart';
-import 'package:flutter_learning/chapter_5/sample_singelchildscrollview.dart';
+import 'package:flutter_learning/chapter_scrollable_widgets/sample_custom_scroll_view.dart';
+import 'package:flutter_learning/chapter_scrollable_widgets/sample_gridview.dart';
+import 'package:flutter_learning/chapter_scrollable_widgets/sample_listview.dart';
+import 'package:flutter_learning/chapter_scrollable_widgets/sample_scroll_controller.dart';
+import 'package:flutter_learning/chapter_scrollable_widgets/sample_singelchildscrollview.dart';
 
 ///可滚动Widget都直接或间接包含一个Scrollable，这里介绍一下通用的属性：
 ///1 axisDirection 滚动方向
@@ -26,7 +26,7 @@ import 'package:flutter_learning/chapter_5/sample_singelchildscrollview.dart';
 /// 只有当Sliver出现在视口中时才会去构建它，这种模型也称为“基于Sliver的延迟构建模型”。可滚动组件中有很多都支持基于Sliver的延迟构建模型，
 /// 如ListView、GridView，但是也有不支持该模型的，如SingleChildScrollView。
 // ignore: must_be_immutable
-class NaviChapter5 extends StatelessWidget {
+class NaviChapterScrollableWigets extends StatelessWidget {
   var itemTitles = [
     "5.1 SingleChildScrollView",
     "5.2 ListView",

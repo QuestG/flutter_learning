@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_7/sample_event_bus.dart';
-import 'package:flutter_learning/chapter_7/sample_gesture_detector.dart';
-import 'package:flutter_learning/chapter_7/sample_notification.dart';
-import 'package:flutter_learning/chapter_7/sample_pointer_event.dart';
+import 'package:flutter_learning/chapter_gesture_notification/sample_event_bus.dart';
+import 'package:flutter_learning/chapter_gesture_notification/sample_gesture_detector.dart';
+import 'package:flutter_learning/chapter_gesture_notification/sample_notification.dart';
+import 'package:flutter_learning/chapter_gesture_notification/sample_pointer_event.dart';
 
 // ignore: must_be_immutable
-class NaviChapter7 extends StatelessWidget {
+class NaviChapterGestureNotification extends StatelessWidget {
   var itemTitles = [
     "7.1 原始指针事件处理",
     "7.2 手势识别",

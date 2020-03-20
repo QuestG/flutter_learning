@@ -1,24 +1,24 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_1/navigation_chapter_1.dart';
-import 'package:flutter_learning/chapter_1/sample_route_management.dart';
-import 'package:flutter_learning/chapter_10/navigation_chapter_10.dart';
-import 'package:flutter_learning/chapter_11/navigation_chapter_11.dart';
-import 'package:flutter_learning/chapter_12/navigation_chapter_12.dart';
-import 'package:flutter_learning/chapter_12/sample_localizations.dart';
-import 'package:flutter_learning/chapter_2/navigation_chapter_2.dart';
-import 'package:flutter_learning/chapter_3/navigation_chapter_3.dart';
-import 'package:flutter_learning/chapter_4/navigation_chapter_4.dart';
-import 'package:flutter_learning/chapter_5/navigation_chapter_5.dart';
-import 'package:flutter_learning/chapter_6/navigation_chapter_6.dart';
-import 'package:flutter_learning/chapter_7/navigation_chapter_7.dart';
-import 'package:flutter_learning/chapter_8/navigation_chapter_8.dart';
-import 'package:flutter_learning/chapter_9/navigation_chapter_9.dart';
+import 'package:flutter_learning/chapter_animation/navigation_chapter_animatioin.dart';
+import 'package:flutter_learning/chapter_basic_widgets/navigation_chapter_basic_widgets.dart';
+import 'package:flutter_learning/chapter_container_widgets/navigation_chapter_container_widgets.dart';
+import 'package:flutter_learning/chapter_custom_widget/navigation_chapter_custom_widget.dart';
+import 'package:flutter_learning/chapter_flutter_start/navigation_chapter_flutter_start.dart';
+import 'package:flutter_learning/chapter_flutter_start/sample_route_management.dart';
+import 'package:flutter_learning/chapter_functional_widgets/navigation_chapter_functional_widgets.dart';
+import 'package:flutter_learning/chapter_gesture_notification/navigation_chapter_gesture_notification.dart';
+import 'package:flutter_learning/chapter_international/navigation_chapter_international.dart';
+import 'package:flutter_learning/chapter_international/sample_localizations.dart';
+import 'package:flutter_learning/chapter_io_http/navigation_chapter_io_http.dart';
+import 'package:flutter_learning/chapter_package_plugin/navigation_chapter_package_plugin.dart';
+import 'package:flutter_learning/chapter_scrollable_widgets/navigation_chapter_scrollable_widgets.dart';
+import 'package:flutter_learning/chapter_widgets_to_layout/navigation_chapter_widgets_to_layout.dart';
 import 'package:flutter_learning/sample_github_client/routes/fake_git_hub_client.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'chapter_12/i10n/sample_intl.dart';
+import 'chapter_international/i10n/sample_intl.dart';
 
 final bool isInDebugMode = false;
 
@@ -142,18 +142,18 @@ class _HomePageState extends State<HomePage> {
     ];
 
     var navigationRoutes = [
-      NaviChapter1(),
-      NaviChapter2(),
-      NaviChapter3(),
-      NaviChapter4(),
-      NaviChapter5(),
-      NaviChapter6(),
-      NaviChapter7(),
-      NaviChapter8(),
-      NaviChapter9(),
-      NaviChapter10(),
-      NaviChapter11(),
-      NaviChapter12(),
+      NaviChapterFlutterStart(),
+      NaviChapterBasicWidgets(),
+      NaviChapterWidgetsToLayout(),
+      NaviChapterContainerWidgets(),
+      NaviChapterScrollableWigets(),
+      NaviChapterFunctionalWidgets(),
+      NaviChapterGestureNotification(),
+      NaviChapterAnimation(),
+      NaviChapterCustomWidget(),
+      NaviChapterIOHttp(),
+      NaviChapterPackagePlugin(),
+      NaviChapterInternational(),
       FakeGitHub()
     ];
 

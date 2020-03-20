@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/chapter_12/i10n/sample_intl.dart';
-import 'package:flutter_learning/chapter_12/sample_localizations.dart';
+import 'package:flutter_learning/chapter_package_plugin/sample_flutter_texture.dart';
+import 'package:flutter_learning/chapter_package_plugin/sample_native_webview.dart';
+import 'package:flutter_learning/chapter_package_plugin/sample_plugin.dart';
 
 // ignore: must_be_immutable
-class NaviChapter12 extends StatelessWidget {
-  var itemTitles = ["12.1 实现Localizations", "12.2 使用Intl包"];
+class NaviChapterPackagePlugin extends StatelessWidget {
+  var itemTitles = [
+    "11.1 Flutter与原生插件开发",
+    "11.2 Flutter与原生共享图像（Texture）",
+    "11.3 Flutter中嵌套原生组件(示例：WebView)"
+  ];
 
-  var itemWidgets = [LocalizationsTest(), IntlTest()];
+  var itemWidgets = [PluginTestRoute(), CameraExampleHome(), WebViewRoute()];
 
   @override
   Widget build(BuildContext context) {
