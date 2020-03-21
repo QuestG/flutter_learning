@@ -4,6 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'profile.g.dart';
 
+/// 用户信息，包括Github账户信息，应用使用配置信息等。
 @JsonSerializable()
 class Profile {
   UserGitHub user;

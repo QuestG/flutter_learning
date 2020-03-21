@@ -1,5 +1,6 @@
 import 'dart:collection';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/adapter.dart';
@@ -113,6 +114,7 @@ class GitHubApi {
   static void init() {
     //添加缓存插件
     dio.interceptors.add(Global.netCache);
+    dio.interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
     // 设置用户token（可能为null，代表未登录）
     dio.options.headers[HttpHeaders.authorizationHeader] = Global.profile.token;
 
@@ -133,6 +135,7 @@ class GitHubApi {
   // 登录接口，登录成功后返回用户信息
   Future<UserGitHub> login(String login, String password) async {
     String basic = "Basic ${base64.encode(utf8.encode('$login:$password'))}";
+    log('login', name: 'suogui');
     var response = await dio.get(
       "/users/$login",
       options: _options.merge(headers: {

@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'cache_config.g.dart';
 
+/// 缓存策略
 @JsonSerializable()
 class CacheConfig {
   bool enable;

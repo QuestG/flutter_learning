@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'user_git_hub.g.dart';
 
+/// github账户信息
 @JsonSerializable()
 class UserGitHub {
   final String login;

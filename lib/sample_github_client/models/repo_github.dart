@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'repo_github.g.dart';
 
+/// 项目信息
 @JsonSerializable()
 class Repo {
   final String id;

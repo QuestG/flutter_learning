@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/sample_github_client/common/global.dart';
 import 'package:flutter_learning/sample_github_client/common/net.dart';
@@ -13,7 +15,7 @@ class LoginRoute extends StatefulWidget {
 }
 
 class _LoginRouteState extends State<LoginRoute> {
-  TextEditingController _unameController = new TextEditingController();
+  TextEditingController _userNameController = new TextEditingController();
   TextEditingController _pwdController = new TextEditingController();
   bool pwdShow = false; //密码是否显示明文
   GlobalKey _formKey = new GlobalKey<FormState>();
@@ -22,8 +24,8 @@ class _LoginRouteState extends State<LoginRoute> {
   @override
   void initState() {
     // 自动填充上次登录的用户名，填充后将焦点定位到密码输入框
-    _unameController.text = Global.profile.lastLogin;
-    if (_unameController.text != null) {
+    _userNameController.text = Global.profile.lastLogin;
+    if (_userNameController.text != null) {
       _nameAutoFocus = false;
     }
     super.initState();
@@ -43,7 +45,7 @@ class _LoginRouteState extends State<LoginRoute> {
             children: <Widget>[
               TextFormField(
                   autofocus: _nameAutoFocus,
-                  controller: _unameController,
+                  controller: _userNameController,
                   decoration: InputDecoration(
                     labelText: gm.userName,
                     hintText: gm.userNameOrEmail,
@@ -97,24 +99,22 @@ class _LoginRouteState extends State<LoginRoute> {
   void _onLogin() async {
     // 提交前，先验证各个表单字段是否合法
     if ((_formKey.currentState as FormState).validate()) {
-//      showLoading(context);
       UserGitHub user;
       try {
         user = await GitHubApi(context)
-            .login(_unameController.text, _pwdController.text);
+            .login(_userNameController.text, _pwdController.text);
         // 因为登录页返回后，首页会build，所以我们传false，更新user后不触发更新
         Provider.of<UserModel>(context, listen: false).user = user;
       } catch (e) {
         //登录失败则提示
         if (e.response?.statusCode == 401) {
+          log(GithubLocalizations.of(context).userNameOrPasswordWrong,
+              name: 'GitHub');
           showToast(GithubLocalizations.of(context).userNameOrPasswordWrong);
         } else {
-          print("login failed: ${e.toString()}");
+          log('login failed: ${e.toString()}', name: 'GitHub');
           showToast(e.toString());
         }
-      } finally {
-        // 隐藏loading框
-        Navigator.of(context).pop();
       }
       if (user != null) {
         // 返回
